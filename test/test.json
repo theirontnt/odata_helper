@@ -1,0 +1,3460 @@
+{
+  "$Version": "4.0",
+  "$EntityContainer": "Default.Container",
+  "Spacehub.Module.BusinessObjects": {
+    "BaseObj": {
+      "$Kind": "EntityType",
+      "$Key": ["Oid"],
+      "Oid": {
+        "$Type": "Edm.Guid"
+      },
+      "CreatedDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "CreatedBy": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      }
+    },
+    "Blog": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "Date": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "Memo": {
+        "$Nullable": true
+      }
+    },
+    "Contract": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "ContractType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ContractType"
+      },
+      "Code": {
+        "$Nullable": true
+      },
+      "CustomerType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.CustomerType"
+      },
+      "Reg": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "Phone": {
+        "$Nullable": true
+      },
+      "Email": {
+        "$Nullable": true
+      },
+      "Address": {
+        "$Nullable": true
+      },
+      "IsNotVat": {
+        "$Type": "Edm.Boolean"
+      },
+      "StartDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "EndDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "Area": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "IsClosed": {
+        "$Type": "Edm.Boolean"
+      },
+      "ClosedDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "IsShowDiagram": {
+        "$Type": "Edm.Boolean"
+      },
+      "ItemNames": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "OwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "RegionId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Region"
+      },
+      "DirectorId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      },
+      "ContractMoreId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractMore"
+      },
+      "ContractItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractItem"
+      },
+      "ContractRooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractRoom"
+      },
+      "PaymentCharts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      },
+      "UtilityCharts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractUtility"
+      },
+      "ContractExtends": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractExtend"
+      },
+      "ContractClose": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractClose"
+      },
+      "Bills": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Bill"
+      },
+      "InvoiceBills": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill"
+      },
+      "Sales": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Sale"
+      },
+      "Discounts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Discount"
+      },
+      "Invoices": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      },
+      "ContractBegins": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractBegin"
+      },
+      "Ratings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Rating"
+      }
+    },
+    "ContractBegin": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "BeginBillType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.BeginBillType"
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "Attribute": {
+        "$Type": "Edm.Int32"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      }
+    },
+    "ContractExtend": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "ExtendType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ExtendType"
+      },
+      "IsNotVat": {
+        "$Type": "Edm.Boolean"
+      },
+      "Area": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "StartDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "EndDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "ClosedDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "IsClosed": {
+        "$Type": "Edm.Boolean"
+      },
+      "IsAllowed": {
+        "$Type": "Edm.Boolean"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PaymentCharts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      }
+    },
+    "ContractClose": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "ClosedDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "IsAllowed": {
+        "$Type": "Edm.Boolean"
+      },
+      "IsFinished": {
+        "$Type": "Edm.Boolean"
+      },
+      "Info": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      }
+    },
+    "ContractPaymentChart": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "IsNotVat": {
+        "$Type": "Edm.Boolean"
+      },
+      "Days": {
+        "$Type": "Edm.Int32"
+      },
+      "ContractAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "DiscountAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "StartDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "EndDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "PaymentDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "PayChartStatus": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.PayChartStatus"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "ContractExtendId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractExtend"
+      },
+      "UtilityId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractUtility"
+      },
+      "LossItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.LossItem"
+      },
+      "InvoiceBillItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBillItem"
+      }
+    },
+    "ContractItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "PricePerUnit": {
+        "$Type": "Edm.Decimal"
+      },
+      "Qty": {
+        "$Type": "Edm.Decimal"
+      },
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "IsUse": {
+        "$Type": "Edm.Boolean"
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PropertyItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyItem"
+      },
+      "ItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Item"
+      },
+      "MeasureId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Measure"
+      }
+    },
+    "ContractRoom": {
+      "$Kind": "EntityType",
+      "$Key": ["Oid"],
+      "Oid": {
+        "$Type": "Edm.Guid"
+      },
+      "Floor": {
+        "$Type": "Edm.Int32"
+      },
+      "Area": {
+        "$Type": "Edm.Decimal"
+      },
+      "PricePerUnit": {
+        "$Type": "Edm.Decimal"
+      },
+      "BasePrice": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "RoomId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Room"
+      }
+    },
+    "ContractUtility": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "MeterDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "ValueElec": {
+        "$Type": "Edm.Decimal"
+      },
+      "ValueHotWater": {
+        "$Type": "Edm.Decimal"
+      },
+      "ValueColdWater": {
+        "$Type": "Edm.Decimal"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PaymentChartId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      },
+      "PrevUtilityChart": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractUtility"
+      }
+    },
+    "ContractItemUtility": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.ContractItem"
+    },
+    "Customer": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "OwnerType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.OwnerType"
+      },
+      "CustomerType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.CustomerType"
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "EnName": {
+        "$Nullable": true
+      },
+      "Image": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "MainService": {
+        "$Nullable": true
+      },
+      "WebSite": {
+        "$Nullable": true
+      },
+      "Phone": {
+        "$Nullable": true
+      },
+      "Email": {
+        "$Nullable": true
+      },
+      "Address": {
+        "$Nullable": true
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "IsOpen": {
+        "$Type": "Edm.Boolean"
+      },
+      "CompanyTypeId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.CompanyType"
+      },
+      "ServiceTypeId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ServiceType"
+      },
+      "RegionId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Region"
+      },
+      "BankAccountId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.BankAccount"
+      },
+      "DirectorId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      },
+      "RecInvoices": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      },
+      "SentInvoices": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      },
+      "BankAccounts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.BankAccount"
+      },
+      "Users": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      },
+      "PropertyOwners": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "Contracts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "Posts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Post"
+      },
+      "Ratings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Rating"
+      },
+      "Invitations": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invitation"
+      },
+      "WorkTimes": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.WorkTime"
+      }
+    },
+    "Property": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "PropertyType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.PropertyType"
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "ShortName": {
+        "$Nullable": true
+      },
+      "Image": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "BeginDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "Phone": {
+        "$Nullable": true
+      },
+      "Address": {
+        "$Nullable": true
+      },
+      "BankAccountNumber": {
+        "$Nullable": true
+      },
+      "PricePerUnit": {
+        "$Type": "Edm.Int32"
+      },
+      "Latitude": {
+        "$Type": "Edm.Double"
+      },
+      "Longitude": {
+        "$Type": "Edm.Double"
+      },
+      "FloorCount": {
+        "$Type": "Edm.Int32"
+      },
+      "BottomFloorCount": {
+        "$Type": "Edm.Int32"
+      },
+      "ContractChartType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ContractChartType"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "ManagerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Employee"
+      },
+      "DiscountConfigs": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.DiscountConfig"
+      },
+      "PropertyItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyItem"
+      },
+      "Contracts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "ListingRooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ListingRoom"
+      },
+      "Rooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Room"
+      },
+      "Floors": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Floor"
+      },
+      "PropertyFeatures": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyFeature"
+      },
+      "PropertyPictures": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyPicture"
+      },
+      "Orderings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Ordering"
+      },
+      "Posts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Post"
+      },
+      "Ratings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Rating"
+      },
+      "Invoices": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      },
+      "WorkTimes": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.WorkTime"
+      }
+    },
+    "PropertyOwner": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "IsDemoData": {
+        "$Type": "Edm.Boolean"
+      },
+      "Data": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "Statements": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Statement",
+        "$Nullable": true
+      },
+      "OwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "PropertyOwnerMoreId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwnerMore"
+      },
+      "DefaultPaymentMethodId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PaymentMethod"
+      },
+      "DiscountConfigs": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.DiscountConfig"
+      },
+      "PropertyEmployees": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Employee"
+      },
+      "WorkTimes": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.WorkTime"
+      },
+      "Invitations": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invitation"
+      },
+      "Customers": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "Users": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      },
+      "OwnContracts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "Properties": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "ListingRooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ListingRoom"
+      },
+      "OwnOrders": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Ordering"
+      },
+      "OwnPosts": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Post"
+      },
+      "OwnRatings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Rating"
+      },
+      "PaymentConfigs": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PaymentConfig"
+      },
+      "Invoices": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      }
+    },
+    "ListingRoom": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "ItemPriority": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ItemPriority"
+      },
+      "RoomType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.RoomType"
+      },
+      "LisingStatus": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ListingStatus"
+      },
+      "Area": {
+        "$Type": "Edm.Decimal"
+      },
+      "PricePerUnit": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "FloorId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Floor"
+      },
+      "RoomId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Room"
+      }
+    },
+    "Room": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Image": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "RoomType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.RoomType"
+      },
+      "Code": {
+        "$Nullable": true
+      },
+      "FloorNumber": {
+        "$Type": "Edm.Int32"
+      },
+      "Area": {
+        "$Type": "Edm.Decimal"
+      },
+      "PricePerUnit": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "RoomStatus": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.RoomStatus"
+      },
+      "IsUseRoom": {
+        "$Type": "Edm.Boolean"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "FloorId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Floor"
+      },
+      "ContractRooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractRoom"
+      },
+      "Orderings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Ordering"
+      },
+      "ListingRooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ListingRoom"
+      },
+      "WorkTimes": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.WorkTime"
+      }
+    },
+    "Post": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "PostType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.PostType"
+      },
+      "Date": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      }
+    },
+    "Notification": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "NotificationCategory": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.NotificationCategory"
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "FromCustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "FromUserId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      },
+      "BaseObjId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.BaseObj"
+      },
+      "NotificationRecivers": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.NotificationReciver"
+      }
+    },
+    "User": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Phone": {
+        "$Nullable": true
+      },
+      "Email": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "LastName": {
+        "$Nullable": true
+      },
+      "Position": {
+        "$Nullable": true
+      },
+      "LoginUserAccountId": {
+        "$Type": "Spacehub.Module.BusinessObjects.ApplicationUser",
+        "$Nullable": true
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "UserMoreId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.UserMore"
+      },
+      "PropertyOwners": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      }
+    },
+    "CompanyType": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      }
+    },
+    "ServiceType": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      }
+    },
+    "Region": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "ParentId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Region"
+      }
+    },
+    "BankAccount": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Name": {
+        "$Nullable": true
+      },
+      "Code": {
+        "$Nullable": true
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "BankId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Bank"
+      }
+    },
+    "Bank": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      }
+    },
+    "PropertyOwnerMore": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "EmailPass": {
+        "$Nullable": true
+      },
+      "Smtp": {
+        "$Nullable": true
+      },
+      "Port": {
+        "$Nullable": true
+      },
+      "SecondEmail": {
+        "$Nullable": true
+      }
+    },
+    "PaymentMethod": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "PaymentMethodType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.PaymentMethodType"
+      },
+      "BankId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Bank"
+      }
+    },
+    "Statement": {
+      "$Kind": "ComplexType",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "ReletedAccount": {
+        "$Nullable": true
+      },
+      "StatementAttribute": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.StatementType"
+      },
+      "StatementData": {
+        "$Nullable": true
+      },
+      "Date": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "SaleId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Sale"
+      }
+    },
+    "LossItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem",
+      "LossDays": {
+        "$Type": "Edm.Int32"
+      },
+      "LossPercent": {
+        "$Type": "Edm.Decimal"
+      },
+      "LossAmt": {
+        "$Type": "Edm.Decimal"
+      },
+      "LossId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Loss"
+      },
+      "PaymentChart": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      }
+    },
+    "Employee": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Position": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.Position"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "UserId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      }
+    },
+    "DiscountConfig": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "StartDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "EndDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "IsActive": {
+        "$Type": "Edm.Boolean"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "DiscountConfigItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.DiscountConfigItem"
+      }
+    },
+    "DiscountConfigItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Discount": {
+        "$Type": "Edm.Decimal"
+      },
+      "DiscountAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "IsUse": {
+        "$Type": "Edm.Boolean"
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "DiscountConfigId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.DiscountConfig"
+      },
+      "ItemCategoryId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ItemCategory"
+      },
+      "PropertyItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyItem"
+      }
+    },
+    "ItemCategory": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      }
+    },
+    "PropertyItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "IsUse": {
+        "$Type": "Edm.Boolean"
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "ItemCategoryId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ItemCategory"
+      },
+      "ItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Item"
+      },
+      "MeasureId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Measure"
+      }
+    },
+    "Item": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "Itemtype": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ItemType"
+      },
+      "ItemPriceType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ItemPriceType"
+      },
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "MinPrice": {
+        "$Type": "Edm.Decimal"
+      },
+      "MaxPrice": {
+        "$Type": "Edm.Decimal"
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "ItemCategoryId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ItemCategory"
+      },
+      "MeasureId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Measure"
+      }
+    },
+    "Measure": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      }
+    },
+    "Floor": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "RoomQty": {
+        "$Type": "Edm.Int32"
+      },
+      "Code": {
+        "$Nullable": true
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "ExistRoomQty": {
+        "$Type": "Edm.Int32"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "Rooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Room"
+      },
+      "ListingRooms": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ListingRoom"
+      },
+      "Orderings": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Ordering"
+      }
+    },
+    "Ordering": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "OrderingDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "PricePerUnit": {
+        "$Type": "Edm.Decimal"
+      },
+      "Area": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "Phone": {
+        "$Nullable": true
+      },
+      "Email": {
+        "$Nullable": true
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "FloorId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Floor"
+      },
+      "RoomId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Room"
+      }
+    },
+    "WorkTime": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Date": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "IsOpen": {
+        "$Type": "Edm.Boolean"
+      },
+      "OpenTime": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "CloseTime": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "RoomId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Room"
+      }
+    },
+    "PropertyFeature": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Memo": {
+        "$Nullable": true
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      }
+    },
+    "PropertyPicture": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Image": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      }
+    },
+    "Rating": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "RateAmount": {
+        "$Type": "Edm.Int32"
+      },
+      "Comment": {
+        "$Nullable": true
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      }
+    },
+    "SaleEbarimt": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "QrImage": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "Success": {
+        "$Type": "Edm.Boolean"
+      },
+      "MerchantId": {
+        "$Nullable": true
+      },
+      "ReturnBillId": {
+        "$Nullable": true
+      },
+      "BillId": {
+        "$Nullable": true
+      },
+      "Date": {
+        "$Nullable": true
+      },
+      "MacAddress": {
+        "$Nullable": true
+      },
+      "InternalCode": {
+        "$Nullable": true
+      },
+      "BillType": {
+        "$Nullable": true
+      },
+      "QrData": {
+        "$Nullable": true
+      },
+      "Lottery": {
+        "$Nullable": true
+      },
+      "LotteryWarningMsg": {
+        "$Nullable": true
+      },
+      "Error": {
+        "$Nullable": true
+      },
+      "Message": {
+        "$Nullable": true
+      }
+    },
+    "Invitation": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "ByEmail": {
+        "$Nullable": true
+      },
+      "InviteEmail": {
+        "$Nullable": true
+      },
+      "IsAccept": {
+        "$Type": "Edm.Boolean"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "ByUserId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      }
+    },
+    "PaymentConfig": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "PaymentConfigType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.PaymentConfigType"
+      },
+      "Code": {
+        "$Nullable": true
+      },
+      "Code2": {
+        "$Nullable": true
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "IsActive": {
+        "$Type": "Edm.Boolean"
+      },
+      "IsTest": {
+        "$Type": "Edm.Boolean"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      }
+    },
+    "ContractMore": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "StartChartCode": {
+        "$Type": "Edm.Int32"
+      },
+      "StartUtilityCode": {
+        "$Type": "Edm.Int32"
+      },
+      "BillBeginType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.BillBeginType"
+      },
+      "BeginAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "BeginVatAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "BeginNoVatAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "Data": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "FirstUtilityId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractUtility"
+      },
+      "FirstChartId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      }
+    },
+    "UserMore": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Gender": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.Gender"
+      },
+      "BirthDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "Image": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "Address": {
+        "$Nullable": true
+      },
+      "RegionId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Region"
+      }
+    },
+    "ApplicationUser": {
+      "$Kind": "ComplexType",
+      "$BaseType": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser",
+      "OwnerType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.OwnerType"
+      },
+      "OwnerUserType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.OwnerUserType"
+      },
+      "IsConnected": {
+        "$Type": "Edm.Boolean"
+      },
+      "ConnectionId": {
+        "$Nullable": true
+      },
+      "RefreshTokens": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.RefreshToken",
+        "$Nullable": true
+      },
+      "LoginInfo": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ApplicationUserLoginInfo",
+        "$Nullable": true
+      },
+      "UserId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      }
+    },
+    "RefreshToken": {
+      "$Kind": "ComplexType",
+      "Token": {
+        "$Nullable": true
+      },
+      "JwtId": {
+        "$Nullable": true
+      },
+      "IsUsed": {
+        "$Type": "Edm.Boolean"
+      },
+      "IsRevoked": {
+        "$Type": "Edm.Boolean"
+      },
+      "GeneratedDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "ExpiryDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "UserId": {
+        "$Type": "Spacehub.Module.BusinessObjects.ApplicationUser",
+        "$Nullable": true
+      }
+    },
+    "ApplicationUserLoginInfo": {
+      "$Kind": "ComplexType",
+      "LoginProviderName": {
+        "$Nullable": true
+      },
+      "ProviderUserKey": {
+        "$Nullable": true
+      },
+      "User": {
+        "$Type": "Spacehub.Module.BusinessObjects.ApplicationUser",
+        "$Nullable": true
+      }
+    },
+    "Country": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      }
+    },
+    "HtmlTemplate": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Name": {
+        "$Nullable": true
+      },
+      "EmailType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.EmailType"
+      },
+      "Html": {
+        "$Nullable": true
+      }
+    },
+    "PriceConfig": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "ItemPriceType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ItemPriceType"
+      },
+      "ObjectType": {
+        "$Type": "System.Type",
+        "$Nullable": true
+      },
+      "Value": {
+        "$Type": "Edm.Decimal"
+      },
+      "Criterion": {
+        "$Nullable": true
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      }
+    },
+    "NotificationReciver": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "IsRecived": {
+        "$Type": "Edm.Boolean"
+      },
+      "NotificationId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Notification"
+      },
+      "ToCustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "ToUserId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.User"
+      }
+    },
+    "Supplier": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "ItemPriority": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ItemPriority"
+      },
+      "Image": {
+        "$Type": "Edm.Binary",
+        "$Nullable": true
+      },
+      "MainService": {
+        "$Nullable": true
+      },
+      "Memo": {
+        "$Nullable": true
+      },
+      "WebSite": {
+        "$Nullable": true
+      },
+      "Phone": {
+        "$Nullable": true
+      },
+      "Email": {
+        "$Nullable": true
+      },
+      "Address": {
+        "$Nullable": true
+      },
+      "ServiceTypeId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ServiceType"
+      }
+    },
+    "RoomFeature": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Memo": {
+        "$Nullable": true
+      }
+    }
+  },
+  "Spacehub.Module.BusinessObjects.Invoice": {
+    "Invoice": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Attribute": {
+        "$Type": "Edm.Int32"
+      },
+      "InvoiceType": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.InvoiceType"
+      },
+      "Code": {
+        "$Nullable": true
+      },
+      "Description": {
+        "$Nullable": true
+      },
+      "Date": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "Number": {
+        "$Type": "Edm.Int32"
+      },
+      "SubTotal": {
+        "$Type": "Edm.Decimal"
+      },
+      "TaxAmt": {
+        "$Type": "Edm.Decimal"
+      },
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "Total": {
+        "$Type": "Edm.Decimal"
+      },
+      "IsNotVat": {
+        "$Type": "Edm.Boolean"
+      },
+      "ActiveStatus": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.ActiveStatus"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PaymentChartId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      },
+      "PropertyId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Property"
+      },
+      "PropertyOwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner"
+      },
+      "OwnerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "CustomerId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Customer"
+      },
+      "InvoiceItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem"
+      },
+      "InvoicePayments": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoicePayment"
+      }
+    },
+    "Bill": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.Invoice",
+      "BillDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "BillStatus": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.BillStatus"
+      },
+      "BalanceAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "QpayRequiest": {
+        "$Nullable": true
+      },
+      "QpayResult": {
+        "$Nullable": true
+      },
+      "BillContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "UtilityId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractUtility"
+      },
+      "BillItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.BillItem"
+      },
+      "BillPays": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.BillPay"
+      }
+    },
+    "InvoiceBill": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.Invoice",
+      "BillDate": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "FromCompanyName": {
+        "$Nullable": true
+      },
+      "FromReg": {
+        "$Nullable": true
+      },
+      "FromAddress": {
+        "$Nullable": true
+      },
+      "FromPhone": {
+        "$Nullable": true
+      },
+      "FromEmail": {
+        "$Nullable": true
+      },
+      "FromBank": {
+        "$Nullable": true
+      },
+      "FromBankAccountNumber": {
+        "$Nullable": true
+      },
+      "FromBankAccountName": {
+        "$Nullable": true
+      },
+      "ToCustomerName": {
+        "$Nullable": true
+      },
+      "ToReg": {
+        "$Nullable": true
+      },
+      "ToAddress": {
+        "$Nullable": true
+      },
+      "ToPhone": {
+        "$Nullable": true
+      },
+      "ToEmail": {
+        "$Nullable": true
+      },
+      "ToContractNumber": {
+        "$Nullable": true
+      },
+      "InvoiceStatus": {
+        "$Type": "Spacehub.Module.BusinessObjects.Types.InvoiceStatus"
+      },
+      "MoneyWords": {
+        "$Nullable": true
+      },
+      "OverPayAmt": {
+        "$Type": "Edm.Decimal"
+      },
+      "PayAmt": {
+        "$Type": "Edm.Decimal"
+      },
+      "QpayRequiest": {
+        "$Nullable": true
+      },
+      "QpayResult": {
+        "$Nullable": true
+      },
+      "BillId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Bill"
+      },
+      "InvoiceContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "InvoiceBillItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBillItem"
+      }
+    },
+    "Sale": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.Invoice",
+      "RefNo": {
+        "$Nullable": true
+      },
+      "PaidAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "BalanceAmount": {
+        "$Type": "Edm.Decimal"
+      },
+      "IsClosed": {
+        "$Type": "Edm.Boolean"
+      },
+      "IsConnectAccount": {
+        "$Type": "Edm.Boolean"
+      },
+      "ReletedAccount": {
+        "$Nullable": true
+      },
+      "SaleContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PaymentMethodId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PaymentMethod"
+      },
+      "InvoiceBillId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill"
+      },
+      "SaleItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.SaleItem"
+      },
+      "SalePayments": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.SalePayment"
+      },
+      "BillPays": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.BillPay"
+      },
+      "SaleEbarimtId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.SaleEbarimt"
+      }
+    },
+    "InvoiceItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Attribute": {
+        "$Type": "Edm.Int32"
+      },
+      "Date": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Precision": 0
+      },
+      "RowIndex": {
+        "$Type": "Edm.Int32"
+      },
+      "Description": {
+        "$Nullable": true
+      },
+      "PriceUnit": {
+        "$Type": "Edm.Decimal"
+      },
+      "Qty": {
+        "$Type": "Edm.Decimal"
+      },
+      "Price": {
+        "$Type": "Edm.Decimal"
+      },
+      "Discount": {
+        "$Type": "Edm.Decimal"
+      },
+      "DiscountAmt": {
+        "$Type": "Edm.Decimal"
+      },
+      "Tax": {
+        "$Type": "Edm.Decimal"
+      },
+      "TaxAmt": {
+        "$Type": "Edm.Decimal"
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "InvoiceId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      },
+      "ContractItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractItem"
+      },
+      "MeasureId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Measure"
+      }
+    },
+    "Loss": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.Invoice",
+      "Name": {
+        "$Nullable": true
+      },
+      "DisItemNames": {
+        "$Nullable": true
+      },
+      "LossItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.LossItem"
+      }
+    },
+    "BillItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem",
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "BillId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Bill"
+      },
+      "DiscountItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.DiscountItem"
+      },
+      "InvoiceBillItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBillItem"
+      }
+    },
+    "DiscountItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem",
+      "DiscountDays": {
+        "$Type": "Edm.Int32"
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "DiscountId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Discount"
+      },
+      "BillItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.BillItem"
+      }
+    },
+    "Discount": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.Invoice",
+      "DisItemNames": {
+        "$Nullable": true
+      },
+      "DiscountContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "DiscountConfigId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.DiscountConfig"
+      },
+      "BillId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Bill"
+      },
+      "DiscountItems": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.DiscountItem"
+      }
+    },
+    "InvoicePayment": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "InvoiceId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice"
+      },
+      "PaymentMethodId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.PaymentMethod"
+      }
+    },
+    "SalePayment": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.InvoicePayment",
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "SaleId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Sale"
+      }
+    },
+    "InvoiceBillItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem",
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "InvoiceBillId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill"
+      },
+      "PaymentChartId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      },
+      "BillItemId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.BillItem"
+      }
+    },
+    "SaleItem": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem",
+      "IsVat": {
+        "$Type": "Edm.Boolean"
+      },
+      "SortOrder": {
+        "$Type": "Edm.Int32"
+      },
+      "SaleId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Sale"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "PaymentChartId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart"
+      }
+    },
+    "BillPay": {
+      "$Kind": "EntityType",
+      "$BaseType": "Spacehub.Module.BusinessObjects.BaseObj",
+      "Code": {
+        "$Nullable": true
+      },
+      "Amount": {
+        "$Type": "Edm.Decimal"
+      },
+      "ContractId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Contract"
+      },
+      "BillId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Bill"
+      },
+      "SaleId": {
+        "$Kind": "NavigationProperty",
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Sale"
+      }
+    }
+  },
+  "System.Reflection": {
+    "MemberInfo": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "CustomAttributes": {
+        "$Collection": true,
+        "$Type": "System.Reflection.CustomAttributeData"
+      }
+    },
+    "CustomAttributeData": {
+      "$Kind": "ComplexType",
+      "ConstructorArguments": {
+        "$Collection": true,
+        "$Type": "System.Reflection.CustomAttributeTypedArgument",
+        "$Nullable": true
+      },
+      "NamedArguments": {
+        "$Collection": true,
+        "$Type": "System.Reflection.CustomAttributeNamedArgument",
+        "$Nullable": true
+      }
+    },
+    "CustomAttributeTypedArgument": {
+      "$Kind": "ComplexType"
+    },
+    "CustomAttributeNamedArgument": {
+      "$Kind": "ComplexType"
+    },
+    "TypeInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Type",
+      "$Abstract": true,
+      "GenericTypeParameters": {
+        "$Collection": true,
+        "$Type": "System.Type"
+      },
+      "DeclaredConstructors": {
+        "$Collection": true,
+        "$Type": "System.Reflection.ConstructorInfo",
+        "$Nullable": true
+      },
+      "DeclaredEvents": {
+        "$Collection": true,
+        "$Type": "System.Reflection.EventInfo",
+        "$Nullable": true
+      },
+      "DeclaredFields": {
+        "$Collection": true,
+        "$Type": "System.Reflection.FieldInfo",
+        "$Nullable": true
+      },
+      "DeclaredMembers": {
+        "$Collection": true,
+        "$Type": "System.Reflection.MemberInfo",
+        "$Nullable": true
+      },
+      "DeclaredMethods": {
+        "$Collection": true,
+        "$Type": "System.Reflection.MethodInfo",
+        "$Nullable": true
+      },
+      "DeclaredNestedTypes": {
+        "$Collection": true,
+        "$Type": "System.Reflection.TypeInfo"
+      },
+      "DeclaredProperties": {
+        "$Collection": true,
+        "$Type": "System.Reflection.PropertyInfo",
+        "$Nullable": true
+      },
+      "ImplementedInterfaces": {
+        "$Collection": true,
+        "$Type": "System.Type"
+      }
+    },
+    "MethodBase": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MemberInfo",
+      "$Abstract": true
+    },
+    "ConstructorInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MethodBase",
+      "$Abstract": true
+    },
+    "EventInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MemberInfo",
+      "$Abstract": true
+    },
+    "FieldInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MemberInfo",
+      "$Abstract": true
+    },
+    "PropertyInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MemberInfo",
+      "$Abstract": true
+    },
+    "MethodInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MethodBase",
+      "$Abstract": true
+    },
+    "TypeDelegator": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.TypeInfo"
+    }
+  },
+  "System": {
+    "Type": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MemberInfo",
+      "$Abstract": true,
+      "GenericTypeArguments": {
+        "$Collection": true,
+        "$Type": "System.Type"
+      }
+    }
+  },
+  "System.Reflection.Emit": {
+    "TypeBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.TypeInfo"
+    },
+    "ConstructorBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.ConstructorInfo",
+      "InitLocals": {
+        "$Type": "Edm.Boolean"
+      }
+    },
+    "FieldBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.FieldInfo"
+    },
+    "PropertyBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.PropertyInfo"
+    },
+    "MethodBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MethodInfo",
+      "InitLocals": {
+        "$Type": "Edm.Boolean"
+      }
+    },
+    "DynamicMethod": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MethodInfo",
+      "InitLocals": {
+        "$Type": "Edm.Boolean"
+      }
+    },
+    "GenericTypeParameterBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.TypeInfo"
+    },
+    "EnumBuilder": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.TypeInfo"
+    }
+  },
+  "System.Runtime.InteropServices": {
+    "ComAwareEventInfo": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.EventInfo"
+    }
+  },
+  "DevExpress.ExpressApp.Model.Core": {
+    "MethodInfoLite": {
+      "$Kind": "ComplexType",
+      "$BaseType": "System.Reflection.MethodInfo",
+      "IsStatic": {
+        "$Type": "Edm.Boolean"
+      }
+    }
+  },
+  "DevExpress.Persistent.BaseImpl.PermissionPolicy": {
+    "PermissionPolicyUser": {
+      "$Kind": "ComplexType",
+      "Roles": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole",
+        "$Nullable": true
+      },
+      "ChangePasswordOnFirstLogon": {
+        "$Type": "Edm.Boolean"
+      },
+      "UserName": {
+        "$Nullable": true
+      },
+      "IsActive": {
+        "$Type": "Edm.Boolean"
+      }
+    },
+    "PermissionPolicyRoleBase": {
+      "$Kind": "ComplexType",
+      "TypePermissions": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyTypePermissionObject",
+        "$Nullable": true
+      },
+      "NavigationPermissions": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyNavigationPermissionObject",
+        "$Nullable": true
+      },
+      "ActionPermissions": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyActionPermissionObject",
+        "$Nullable": true
+      },
+      "Name": {
+        "$Nullable": true
+      },
+      "IsAdministrative": {
+        "$Type": "Edm.Boolean"
+      },
+      "CanEditModel": {
+        "$Type": "Edm.Boolean"
+      },
+      "PermissionPolicy": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionPolicy"
+      }
+    },
+    "PermissionPolicyRole": {
+      "$Kind": "ComplexType",
+      "$BaseType": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase",
+      "Users": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser",
+        "$Nullable": true
+      }
+    },
+    "PermissionPolicyTypePermissionObject": {
+      "$Kind": "ComplexType",
+      "Role": {
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase",
+        "$Nullable": true
+      },
+      "TargetType": {
+        "$Type": "System.Type",
+        "$Nullable": true
+      },
+      "ReadState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "WriteState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "CreateState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "DeleteState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "NavigateState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "MemberPermissions": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyMemberPermissionsObject",
+        "$Nullable": true
+      },
+      "ObjectPermissions": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyObjectPermissionsObject",
+        "$Nullable": true
+      }
+    },
+    "PermissionPolicyNavigationPermissionObject": {
+      "$Kind": "ComplexType",
+      "ItemPath": {
+        "$Nullable": true
+      },
+      "NavigateState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "Role": {
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase",
+        "$Nullable": true
+      }
+    },
+    "PermissionPolicyActionPermissionObject": {
+      "$Kind": "ComplexType",
+      "ActionDescriptor": {
+        "$Type": "DevExpress.Persistent.Base.SecuredActionDescriptor",
+        "$Nullable": true
+      },
+      "SecuredActionDescriptors": {
+        "$Collection": true,
+        "$Type": "DevExpress.Persistent.Base.SecuredActionDescriptor",
+        "$Nullable": true
+      },
+      "ActionId": {
+        "$Nullable": true
+      },
+      "Role": {
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase",
+        "$Nullable": true
+      }
+    },
+    "PermissionPolicyMemberPermissionsObject": {
+      "$Kind": "ComplexType",
+      "Members": {
+        "$Nullable": true
+      },
+      "ReadState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "WriteState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "Criteria": {
+        "$Nullable": true
+      },
+      "TypePermissionObject": {
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyTypePermissionObject",
+        "$Nullable": true
+      }
+    },
+    "PermissionPolicyObjectPermissionsObject": {
+      "$Kind": "ComplexType",
+      "Criteria": {
+        "$Nullable": true
+      },
+      "ReadState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "WriteState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "DeleteState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "NavigateState": {
+        "$Type": "DevExpress.Persistent.Base.SecurityPermissionState",
+        "$Nullable": true
+      },
+      "TypePermissionObject": {
+        "$Type": "DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyTypePermissionObject",
+        "$Nullable": true
+      }
+    }
+  },
+  "DevExpress.Persistent.Base": {
+    "SecuredActionDescriptor": {
+      "$Kind": "ComplexType"
+    },
+    "SecurityPermissionState": {
+      "$Kind": "EnumType",
+      "Deny": 0,
+      "Allow": 1
+    },
+    "SecurityPermissionPolicy": {
+      "$Kind": "EnumType",
+      "DenyAllByDefault": 0,
+      "ReadOnlyAllByDefault": 1,
+      "AllowAllByDefault": 2
+    }
+  },
+  "Spacehub.Module.BusinessObjects.Types": {
+    "OwnerType": {
+      "$Kind": "EnumType",
+      "Owner": 0,
+      "Customer": 1
+    },
+    "CustomerType": {
+      "$Kind": "EnumType",
+      "Company": 0,
+      "SelfEmployee": 1,
+      "Home": 2
+    },
+    "InvoiceType": {
+      "$Kind": "EnumType",
+      "Bill": 0,
+      "InvoiceBill": 1,
+      "Discount": 2,
+      "Sale": 3,
+      "Loss": 4,
+      "Billing": 5,
+      "Other": 9
+    },
+    "ContractType": {
+      "$Kind": "EnumType",
+      "ContractRent": 0,
+      "ContractSale": 1,
+      "ContractUtility": 2
+    },
+    "PaymentMethodType": {
+      "$Kind": "EnumType",
+      "Cash": 0,
+      "Bank": 1,
+      "Loan": 2,
+      "Barter": 3,
+      "Other": 4
+    },
+    "StatementType": {
+      "$Kind": "EnumType",
+      "None": 0,
+      "Income": 1,
+      "Expense": -1
+    },
+    "ExtendType": {
+      "$Kind": "EnumType",
+      "Main": 0,
+      "Extend": 1
+    },
+    "PayChartStatus": {
+      "$Kind": "EnumType",
+      "None": 0,
+      "CreatedUtility": 1,
+      "CreatedBill": 10,
+      "CreatedInvoice": 20,
+      "SentInvoice": 21,
+      "Paid": 30,
+      "UnderPaid": 31,
+      "OverTime": 40
+    },
+    "PropertyType": {
+      "$Kind": "EnumType",
+      "Office": 0,
+      "Market": 1,
+      "Apartment": 2
+    },
+    "Position": {
+      "$Kind": "EnumType",
+      "Director": 0,
+      "Accountant": 1,
+      "Manager": 2,
+      "Reseption": 3,
+      "Waiter": 4,
+      "Sentry": 5,
+      "Other": 6
+    },
+    "ContractChartType": {
+      "$Kind": "EnumType",
+      "BeginMonth": 0,
+      "CurrentDay": 1
+    },
+    "ItemType": {
+      "$Kind": "EnumType",
+      "Rent": 0,
+      "Utility": 1,
+      "Other": 9
+    },
+    "ItemPriceType": {
+      "$Kind": "EnumType",
+      "None": 0,
+      "Rent": 1,
+      "Collateral": 2,
+      "ElecBase": 10,
+      "ElecUsage": 11,
+      "EnergyBase": 12,
+      "EnergyUsage": 13,
+      "WaterBase": 14,
+      "WaterUsage": 15,
+      "Sewage": 16,
+      "DoHotWater": 17
+    },
+    "RoomType": {
+      "$Kind": "EnumType",
+      "Office": 0,
+      "Pavilon": 1,
+      "Stall": 2,
+      "ServiceArea": 3,
+      "Table": 4,
+      "Seat": 5
+    },
+    "RoomStatus": {
+      "$Kind": "EnumType",
+      "Free": 0,
+      "Listed": 1,
+      "Rent": 2,
+      "Sold": 3,
+      "Leased": 4
+    },
+    "ItemPriority": {
+      "$Kind": "EnumType",
+      "Normal": 0,
+      "Special": 1
+    },
+    "ListingStatus": {
+      "$Kind": "EnumType",
+      "Listed": 0,
+      "Ordered": 1,
+      "Entered": 2
+    },
+    "PostType": {
+      "$Kind": "EnumType",
+      "Post": 0,
+      "Ads": 1,
+      "Event": 2
+    },
+    "ActiveStatus": {
+      "$Kind": "EnumType",
+      "Active": 0,
+      "Cancel": 1
+    },
+    "BillStatus": {
+      "$Kind": "EnumType",
+      "CreatedBill": 0,
+      "CreatedInvoice": 1,
+      "SentInvoice": 2,
+      "Paid": 3,
+      "UnderPaid": 4,
+      "InActive": 5
+    },
+    "InvoiceStatus": {
+      "$Kind": "EnumType",
+      "CreatedInvoice": 0,
+      "SentInvoice": 1,
+      "Paid": 2,
+      "UnderPaid": 3,
+      "OverTime": 4,
+      "InActive": 5
+    },
+    "PaymentConfigType": {
+      "$Kind": "EnumType",
+      "Qpay": 0,
+      "Socailpay": 1,
+      "KhanGateway": 2,
+      "TDBGateway": 3
+    },
+    "BillBeginType": {
+      "$Kind": "EnumType",
+      "None": 0,
+      "OverPay": 1,
+      "UnderPay": 2
+    },
+    "BeginBillType": {
+      "$Kind": "EnumType",
+      "Pledge": 0,
+      "OverPay": 1,
+      "UnderPay": 2
+    },
+    "Gender": {
+      "$Kind": "EnumType",
+      "None": 0,
+      "Male": 1,
+      "FeMale": 2
+    },
+    "OwnerUserType": {
+      "$Kind": "EnumType",
+      "Main": 0,
+      "Other": 1
+    },
+    "EmailType": {
+      "$Kind": "EnumType",
+      "Invoice": 0,
+      "Password": 1,
+      "BuidlingItem": 10
+    },
+    "NotificationCategory": {
+      "$Kind": "EnumType",
+      "Main": 0,
+      "Invoice": 1,
+      "Advertise": 2,
+      "Other": 10
+    }
+  },
+  "Default": {
+    "Container": {
+      "$Kind": "EntityContainer",
+      "BaseObj": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.BaseObj",
+        "$NavigationPropertyBinding": {
+          "CreatedBy": "User",
+          "Spacehub.Module.BusinessObjects.BankAccount/BankId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.BankAccount/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Contract/Bills": "Bill",
+          "Spacehub.Module.BusinessObjects.Contract/ContractBegins": "ContractBegin",
+          "Spacehub.Module.BusinessObjects.Contract/ContractClose": "ContractClose",
+          "Spacehub.Module.BusinessObjects.Contract/ContractExtends": "ContractExtend",
+          "Spacehub.Module.BusinessObjects.Contract/ContractItems": "ContractItem",
+          "Spacehub.Module.BusinessObjects.Contract/ContractMoreId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Contract/ContractRooms": "ContractRoom",
+          "Spacehub.Module.BusinessObjects.Contract/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Contract/DirectorId": "User",
+          "Spacehub.Module.BusinessObjects.Contract/Discounts": "Invoice",
+          "Spacehub.Module.BusinessObjects.Contract/InvoiceBills": "InvoiceBill",
+          "Spacehub.Module.BusinessObjects.Contract/Invoices": "Invoice",
+          "Spacehub.Module.BusinessObjects.Contract/OwnerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Contract/PaymentCharts": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.Contract/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Contract/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Contract/Ratings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Contract/RegionId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Contract/Sales": "Invoice",
+          "Spacehub.Module.BusinessObjects.Contract/UtilityCharts": "ContractUtility",
+          "Spacehub.Module.BusinessObjects.ContractBegin/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.ContractClose/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.ContractClose/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.ContractExtend/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.ContractExtend/PaymentCharts": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.ContractExtend/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.ContractItem/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.ContractItem/ItemId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ContractItem/MeasureId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ContractItem/PropertyItemId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ContractMore/FirstChartId": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.ContractMore/FirstUtilityId": "ContractUtility",
+          "Spacehub.Module.BusinessObjects.ContractPaymentChart/ContractExtendId": "ContractExtend",
+          "Spacehub.Module.BusinessObjects.ContractPaymentChart/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.ContractPaymentChart/InvoiceBillItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ContractPaymentChart/LossItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ContractPaymentChart/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.ContractPaymentChart/UtilityId": "ContractUtility",
+          "Spacehub.Module.BusinessObjects.ContractUtility/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.ContractUtility/PaymentChartId": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.ContractUtility/PrevUtilityChart": "ContractUtility",
+          "Spacehub.Module.BusinessObjects.Customer/BankAccountId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/BankAccounts": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/CompanyTypeId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/Contracts": "Contract",
+          "Spacehub.Module.BusinessObjects.Customer/DirectorId": "User",
+          "Spacehub.Module.BusinessObjects.Customer/Invitations": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/Posts": "Post",
+          "Spacehub.Module.BusinessObjects.Customer/PropertyOwners": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Customer/Ratings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/RecInvoices": "Invoice",
+          "Spacehub.Module.BusinessObjects.Customer/RegionId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/SentInvoices": "Invoice",
+          "Spacehub.Module.BusinessObjects.Customer/ServiceTypeId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Customer/Users": "User",
+          "Spacehub.Module.BusinessObjects.Customer/WorkTimes": "BaseObj",
+          "Spacehub.Module.BusinessObjects.DiscountConfig/DiscountConfigItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.DiscountConfig/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.DiscountConfig/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.DiscountConfigItem/DiscountConfigId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.DiscountConfigItem/ItemCategoryId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.DiscountConfigItem/PropertyItemId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Employee/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Employee/UserId": "User",
+          "Spacehub.Module.BusinessObjects.Floor/ListingRooms": "ListingRoom",
+          "Spacehub.Module.BusinessObjects.Floor/Orderings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Floor/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Floor/Rooms": "Room",
+          "Spacehub.Module.BusinessObjects.Invitation/ByUserId": "User",
+          "Spacehub.Module.BusinessObjects.Invitation/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Invitation/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/BillContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/BillItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/BillPays": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/UtilityId": "ContractUtility",
+          "Spacehub.Module.BusinessObjects.Invoice.BillItem/BillId": "Bill",
+          "Spacehub.Module.BusinessObjects.Invoice.BillItem/DiscountItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.BillItem/InvoiceBillItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.BillPay/BillId": "Bill",
+          "Spacehub.Module.BusinessObjects.Invoice.BillPay/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.BillPay/SaleId": "Invoice",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/BillId": "Bill",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/DiscountConfigId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/DiscountContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/DiscountItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.DiscountItem/BillItemId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.DiscountItem/DiscountId": "Invoice",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/InvoiceItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/InvoicePayments": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/OwnerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/PaymentChartId": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Invoice.Invoice/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill/BillId": "Bill",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill/InvoiceBillItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill/InvoiceContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBillItem/BillItemId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBillItem/InvoiceBillId": "InvoiceBill",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBillItem/PaymentChartId": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem/ContractItemId": "ContractItem",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem/InvoiceId": "Invoice",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceItem/MeasureId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoicePayment/InvoiceId": "Invoice",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoicePayment/PaymentMethodId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Loss/LossItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/BillPays": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/InvoiceBillId": "InvoiceBill",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/PaymentMethodId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SaleContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SaleEbarimtId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SaleItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SalePayments": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.SaleItem/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.SaleItem/PaymentChartId": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.Invoice.SaleItem/SaleId": "Invoice",
+          "Spacehub.Module.BusinessObjects.Invoice.SalePayment/SaleId": "Invoice",
+          "Spacehub.Module.BusinessObjects.Item/ItemCategoryId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Item/MeasureId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ListingRoom/FloorId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.ListingRoom/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.ListingRoom/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.ListingRoom/RoomId": "Room",
+          "Spacehub.Module.BusinessObjects.LossItem/LossId": "Invoice",
+          "Spacehub.Module.BusinessObjects.LossItem/PaymentChart": "ContractPaymentChart",
+          "Spacehub.Module.BusinessObjects.Notification/BaseObjId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Notification/FromCustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Notification/FromUserId": "User",
+          "Spacehub.Module.BusinessObjects.Notification/NotificationRecivers": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Notification/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.NotificationReciver/NotificationId": "Notification",
+          "Spacehub.Module.BusinessObjects.NotificationReciver/ToCustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.NotificationReciver/ToUserId": "User",
+          "Spacehub.Module.BusinessObjects.Ordering/FloorId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Ordering/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Ordering/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Ordering/RoomId": "Room",
+          "Spacehub.Module.BusinessObjects.PaymentConfig/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.PaymentMethod/BankId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Post/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Post/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Post/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Property/Contracts": "Contract",
+          "Spacehub.Module.BusinessObjects.Property/DiscountConfigs": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/Floors": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/Invoices": "Invoice",
+          "Spacehub.Module.BusinessObjects.Property/ListingRooms": "ListingRoom",
+          "Spacehub.Module.BusinessObjects.Property/ManagerId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/Orderings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/Posts": "Post",
+          "Spacehub.Module.BusinessObjects.Property/PropertyFeatures": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/PropertyItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Property/PropertyPictures": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/Ratings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Property/Rooms": "Room",
+          "Spacehub.Module.BusinessObjects.Property/WorkTimes": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyFeature/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.PropertyItem/ItemCategoryId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyItem/ItemId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyItem/MeasureId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyItem/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Customers": "Customer",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/DefaultPaymentMethodId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/DiscountConfigs": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Invitations": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Invoices": "Invoice",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/ListingRooms": "ListingRoom",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/OwnContracts": "Contract",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/OwnerId": "Customer",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/OwnOrders": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/OwnPosts": "Post",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/OwnRatings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/PaymentConfigs": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Properties": "Property",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/PropertyEmployees": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/PropertyOwnerMoreId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Statements/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Statements/SaleId": "Invoice",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/Users": "User",
+          "Spacehub.Module.BusinessObjects.PropertyOwner/WorkTimes": "BaseObj",
+          "Spacehub.Module.BusinessObjects.PropertyPicture/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Rating/ContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Rating/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.Rating/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Rating/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Region/ParentId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Room/ContractRooms": "ContractRoom",
+          "Spacehub.Module.BusinessObjects.Room/FloorId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Room/ListingRooms": "ListingRoom",
+          "Spacehub.Module.BusinessObjects.Room/Orderings": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Room/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.Room/WorkTimes": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Supplier/ServiceTypeId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.User/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.User/LoginUserAccountId/Roles/ActionPermissions/Role/DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "Spacehub.Module.BusinessObjects.User/LoginUserAccountId/Roles/NavigationPermissions/Role/DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "Spacehub.Module.BusinessObjects.User/LoginUserAccountId/Roles/TypePermissions/Role/DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "Spacehub.Module.BusinessObjects.User/LoginUserAccountId/Roles/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "Spacehub.Module.BusinessObjects.User/LoginUserAccountId/UserId": "User",
+          "Spacehub.Module.BusinessObjects.User/PropertyOwners": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.User/UserMoreId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.UserMore/RegionId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.WorkTime/CustomerId": "Customer",
+          "Spacehub.Module.BusinessObjects.WorkTime/PropertyId": "Property",
+          "Spacehub.Module.BusinessObjects.WorkTime/PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.WorkTime/RoomId": "Room"
+        }
+      },
+      "Blog": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Blog",
+        "$NavigationPropertyBinding": {
+          "CreatedBy": "User"
+        }
+      },
+      "Bill": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Bill",
+        "$NavigationPropertyBinding": {
+          "BillContractId": "Contract",
+          "BillItems": "BaseObj",
+          "BillPays": "BaseObj",
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "CustomerId": "Customer",
+          "InvoiceItems": "BaseObj",
+          "InvoicePayments": "BaseObj",
+          "OwnerId": "Customer",
+          "PaymentChartId": "ContractPaymentChart",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner",
+          "UtilityId": "ContractUtility"
+        }
+      },
+      "Invoice": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.Invoice",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "CustomerId": "Customer",
+          "InvoiceItems": "BaseObj",
+          "InvoicePayments": "BaseObj",
+          "OwnerId": "Customer",
+          "PaymentChartId": "ContractPaymentChart",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/BillContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/BillItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/BillPays": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Bill/UtilityId": "ContractUtility",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/BillId": "Bill",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/DiscountConfigId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/DiscountContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Discount/DiscountItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill/BillId": "Bill",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill/InvoiceBillItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill/InvoiceContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Loss/LossItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/BillPays": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/InvoiceBillId": "InvoiceBill",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/PaymentMethodId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SaleContractId": "Contract",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SaleEbarimtId": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SaleItems": "BaseObj",
+          "Spacehub.Module.BusinessObjects.Invoice.Sale/SalePayments": "BaseObj"
+        }
+      },
+      "Contract": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Contract",
+        "$NavigationPropertyBinding": {
+          "Bills": "Bill",
+          "ContractBegins": "ContractBegin",
+          "ContractClose": "ContractClose",
+          "ContractExtends": "ContractExtend",
+          "ContractItems": "ContractItem",
+          "ContractMoreId": "BaseObj",
+          "ContractRooms": "ContractRoom",
+          "CreatedBy": "User",
+          "CustomerId": "Customer",
+          "DirectorId": "User",
+          "Discounts": "Invoice",
+          "InvoiceBills": "InvoiceBill",
+          "Invoices": "Invoice",
+          "OwnerId": "Customer",
+          "PaymentCharts": "ContractPaymentChart",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner",
+          "Ratings": "BaseObj",
+          "RegionId": "BaseObj",
+          "Sales": "Invoice",
+          "UtilityCharts": "ContractUtility"
+        }
+      },
+      "ContractBegin": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractBegin",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User"
+        }
+      },
+      "ContractExtend": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractExtend",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "PaymentCharts": "ContractPaymentChart",
+          "PropertyOwnerId": "PropertyOwner"
+        }
+      },
+      "ContractClose": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractClose",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "PropertyOwnerId": "PropertyOwner"
+        }
+      },
+      "ContractPaymentChart": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractPaymentChart",
+        "$NavigationPropertyBinding": {
+          "ContractExtendId": "ContractExtend",
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "InvoiceBillItems": "BaseObj",
+          "LossItems": "BaseObj",
+          "PropertyOwnerId": "PropertyOwner",
+          "UtilityId": "ContractUtility"
+        }
+      },
+      "ContractItem": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractItem",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "ItemId": "BaseObj",
+          "MeasureId": "BaseObj",
+          "PropertyItemId": "BaseObj"
+        }
+      },
+      "ContractRoom": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractRoom",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner",
+          "RoomId": "Room"
+        }
+      },
+      "ContractUtility": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractUtility",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "PaymentChartId": "ContractPaymentChart",
+          "PrevUtilityChart": "ContractUtility"
+        }
+      },
+      "ContractItemUtility": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ContractItemUtility",
+        "$NavigationPropertyBinding": {
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "ItemId": "BaseObj",
+          "MeasureId": "BaseObj",
+          "PropertyItemId": "BaseObj"
+        }
+      },
+      "Customer": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Customer",
+        "$NavigationPropertyBinding": {
+          "BankAccountId": "BaseObj",
+          "BankAccounts": "BaseObj",
+          "CompanyTypeId": "BaseObj",
+          "Contracts": "Contract",
+          "CreatedBy": "User",
+          "DirectorId": "User",
+          "Invitations": "BaseObj",
+          "Posts": "Post",
+          "PropertyOwners": "PropertyOwner",
+          "Ratings": "BaseObj",
+          "RecInvoices": "Invoice",
+          "RegionId": "BaseObj",
+          "SentInvoices": "Invoice",
+          "ServiceTypeId": "BaseObj",
+          "Users": "User",
+          "WorkTimes": "BaseObj"
+        }
+      },
+      "Property": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Property",
+        "$NavigationPropertyBinding": {
+          "Contracts": "Contract",
+          "CreatedBy": "User",
+          "DiscountConfigs": "BaseObj",
+          "Floors": "BaseObj",
+          "Invoices": "Invoice",
+          "ListingRooms": "ListingRoom",
+          "ManagerId": "BaseObj",
+          "Orderings": "BaseObj",
+          "Posts": "Post",
+          "PropertyFeatures": "BaseObj",
+          "PropertyItems": "BaseObj",
+          "PropertyOwnerId": "PropertyOwner",
+          "PropertyPictures": "BaseObj",
+          "Ratings": "BaseObj",
+          "Rooms": "Room",
+          "WorkTimes": "BaseObj"
+        }
+      },
+      "PropertyOwner": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.PropertyOwner",
+        "$NavigationPropertyBinding": {
+          "CreatedBy": "User",
+          "Customers": "Customer",
+          "DefaultPaymentMethodId": "BaseObj",
+          "DiscountConfigs": "BaseObj",
+          "Invitations": "BaseObj",
+          "Invoices": "Invoice",
+          "ListingRooms": "ListingRoom",
+          "OwnContracts": "Contract",
+          "OwnerId": "Customer",
+          "OwnOrders": "BaseObj",
+          "OwnPosts": "Post",
+          "OwnRatings": "BaseObj",
+          "PaymentConfigs": "BaseObj",
+          "Properties": "Property",
+          "PropertyEmployees": "BaseObj",
+          "PropertyOwnerMoreId": "BaseObj",
+          "Statements/PropertyOwnerId": "PropertyOwner",
+          "Statements/SaleId": "Invoice",
+          "Users": "User",
+          "WorkTimes": "BaseObj"
+        }
+      },
+      "ListingRoom": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.ListingRoom",
+        "$NavigationPropertyBinding": {
+          "CreatedBy": "User",
+          "FloorId": "BaseObj",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner",
+          "RoomId": "Room"
+        }
+      },
+      "Room": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Room",
+        "$NavigationPropertyBinding": {
+          "ContractRooms": "ContractRoom",
+          "CreatedBy": "User",
+          "FloorId": "BaseObj",
+          "ListingRooms": "ListingRoom",
+          "Orderings": "BaseObj",
+          "PropertyId": "Property",
+          "WorkTimes": "BaseObj"
+        }
+      },
+      "Post": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Post",
+        "$NavigationPropertyBinding": {
+          "CreatedBy": "User",
+          "CustomerId": "Customer",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner"
+        }
+      },
+      "InvoiceBill": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Invoice.InvoiceBill",
+        "$NavigationPropertyBinding": {
+          "BillId": "Bill",
+          "ContractId": "Contract",
+          "CreatedBy": "User",
+          "CustomerId": "Customer",
+          "InvoiceBillItems": "BaseObj",
+          "InvoiceContractId": "Contract",
+          "InvoiceItems": "BaseObj",
+          "InvoicePayments": "BaseObj",
+          "OwnerId": "Customer",
+          "PaymentChartId": "ContractPaymentChart",
+          "PropertyId": "Property",
+          "PropertyOwnerId": "PropertyOwner"
+        }
+      },
+      "Notification": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.Notification",
+        "$NavigationPropertyBinding": {
+          "BaseObjId": "BaseObj",
+          "CreatedBy": "User",
+          "FromCustomerId": "Customer",
+          "FromUserId": "User",
+          "NotificationRecivers": "BaseObj",
+          "PropertyOwnerId": "PropertyOwner"
+        }
+      },
+      "User": {
+        "$Collection": true,
+        "$Type": "Spacehub.Module.BusinessObjects.User",
+        "$NavigationPropertyBinding": {
+          "CreatedBy": "User",
+          "CustomerId": "Customer",
+          "LoginUserAccountId/Roles/ActionPermissions/Role/DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "LoginUserAccountId/Roles/NavigationPermissions/Role/DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "LoginUserAccountId/Roles/TypePermissions/Role/DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "LoginUserAccountId/Roles/Users/Spacehub.Module.BusinessObjects.ApplicationUser/UserId": "User",
+          "LoginUserAccountId/UserId": "User",
+          "PropertyOwners": "PropertyOwner",
+          "UserMoreId": "BaseObj"
+        }
+      }
+    }
+  }
+}
