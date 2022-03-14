@@ -1,8 +1,13 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import '../decoder.dart';
 import 'base.dart';
 import 'edm_types.dart';
 import '../keywords.dart' as kw;
 
+part 'type.g.dart';
+
+@JsonSerializable(anyMap: true)
 class TypeDefinition extends Base {
   /// The underlying type of a type definition MUST be a primitive type that MUST NOT be another type definition.
   late final EdmType underlyingType;
@@ -41,7 +46,7 @@ class TypeDefinition extends Base {
   /// Note: if the underlying data store allows negative scale, services may use a Precision with the absolute value of the negative scale added to the actual number of significant decimal digits, and client-provided values may have to be rounded before being stored.
   late final dynamic scale;
 
-  TypeDefinition(String _name, JSON _json) : super(_name, _json) {
+  TypeDefinition(String name, JSON json) : super(name, json) {
     if (json[kw.kind] != kw.typeDefKind) {
       throw "TypeDefinition must be of ${kw.typeDefKind} kind";
     }
@@ -53,4 +58,8 @@ class TypeDefinition extends Base {
     precision = json[kw.precision];
     scale = json[kw.scale];
   }
+
+  static TypeDefinition fromJson(JSON json) => _$TypeDefinitionFromJson(json);
+
+  JSON toJson() => _$TypeDefinitionToJson(this);
 }

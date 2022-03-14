@@ -35,5 +35,5 @@ const isFlags = r"$IsFlags";
 // Kinds
 const entityKind = "EntityType";
 const complexTypeKind = "ComplexType";
-const typeKind = "EnumType";
+const enumKind = "EnumType";
 const typeDefKind = "TypeDefinition";

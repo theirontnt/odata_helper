@@ -1,10 +1,15 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:json_annotation/json_annotation.dart';
+
 import '../decoder.dart';
 import '../keywords.dart' as kw;
 import 'base.dart';
 import 'entity_property.dart';
 
+part 'entity.g.dart';
+
+@JsonSerializable(anyMap: true)
 class Entity extends Base {
   /// An entity is uniquely identified within an entity set by its key. A key MAY be specified if the entity type does not specify a base type that already has a key declared.
   ///
@@ -81,7 +86,7 @@ class Entity extends Base {
   /// Pass JSON representation of the entity
   ///
   /// [name] is the name of the Entity (or Data Class if you would)
-  Entity(String _name, JSON _json) : super(_name, _json) {
+  Entity(String name, JSON json) : super(name, json) {
     // extended classes may have different `$Kind`
     if (runtimeType is Entity && json[kw.kind] != kw.entityKind) {
       throw "Entity must be of ${kw.entityKind} kind";
@@ -100,12 +105,8 @@ class Entity extends Base {
       }
     }
   }
-}
 
-class ComplexType extends Entity {
-  ComplexType(String name, JSON json) : super(name, json) {
-    if (runtimeType is ComplexType && json[kw.kind] != kw.complexTypeKind) {
-      throw "Complex type must be of ${kw.complexTypeKind} kind";
-    }
-  }
+  static Entity fromJson(JSON json) => _$EntityFromJson(json);
+
+  JSON toJson() => _$EntityToJson(this);
 }
