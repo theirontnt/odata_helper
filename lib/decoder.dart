@@ -3,10 +3,8 @@ import 'package:flat/flat.dart';
 import './models/entity.dart';
 import './models/enum_type.dart';
 import './models/type.dart';
+import './models/complex_type.dart';
 import 'keywords.dart' as kw;
-import 'models/complex_type.dart';
-import 'models/enum_type.dart';
-import 'models/type.dart';
 
 typedef JSON = Map<String, dynamic>;
 
@@ -67,5 +65,10 @@ class ODataDecoder {
         print("Failed to resolve $key:$value; thrown error is: \"$e\"");
       }
     });
+
+    // We'll use the flag for generation process
+    decodedFlag.clear();
   }
+
+  void generate() {}
 }
