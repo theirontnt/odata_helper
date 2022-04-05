@@ -2,7 +2,7 @@ import 'package:http/http.dart';
 
 typedef JSON = Map<String, dynamic>;
 
-class ODataResult<T> {
+class ODataResponse<T> {
   /// @odata.context
   final String? context;
 
@@ -18,5 +18,5 @@ class ODataResult<T> {
   /// Full path of the sent request
   final String path;
 
-  ODataResult({this.context, this.data, this.response, this.statusCode, required this.path});
+  ODataResponse({this.context, this.data, this.response, this.statusCode, required this.path});
 }

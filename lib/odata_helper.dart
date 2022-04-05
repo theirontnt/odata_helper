@@ -1,3 +1,3 @@
-void main(List<String> arguments) {
-  print('Hello world!');
-}
+library odata_helper;
+
+export 'odata.dart';
