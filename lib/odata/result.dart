@@ -9,6 +9,11 @@ class ODataResponse<T> {
   /// Response data
   final T? data;
 
+  /// Response json.
+  ///
+  /// Will be empty map the body isn't valid JSON
+  final JSON json;
+
   /// Raw response
   final Response? response;
 
@@ -18,5 +23,5 @@ class ODataResponse<T> {
   /// Full path of the sent request
   final String path;
 
-  ODataResponse({this.context, this.data, this.response, this.statusCode, required this.path});
+  ODataResponse({required this.json, this.context, this.data, this.response, this.statusCode, required this.path});
 }

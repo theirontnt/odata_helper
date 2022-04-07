@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:odata_helper/odata/query_fields.dart';
+import 'package:odata_helper/odata/query_options.dart';
 
 import 'package:odata_helper/odata/result.dart';
 
@@ -18,12 +21,14 @@ class Query<T> extends QueryBase {
   final String? cookie;
   final String? bearer;
 
+  final QueryOptions<T> options;
+
   List<String> _filter = [];
   List<ExpandQueryField> _expand = [];
   List<String> _select = [];
   bool _selectAll = false;
 
-  Query({required String baseUrl, required String path, this.cookie, this.bearer}) : super(baseUrl, path);
+  Query({this.options = const QueryOptions(), required String baseUrl, required String path, this.cookie, this.bearer}) : super(baseUrl, path);
 
   JSON get headers {
     final JSON value = {};
@@ -56,13 +61,49 @@ class Query<T> extends QueryBase {
   }
 
   Future<ODataResponse<T>?> fetch() async {
-    final http.Request req = http.Request("GET", Uri.https(baseUrl, path, queries()));
+    final http.Request req = http.Request(options.method, Uri.https(baseUrl, path, queries()));
+
+    req.body = options.data.toString();
 
     headers.forEach((key, value) {
       req.headers[key] = value;
     });
 
+    req.headers["Accept-Charset"] = "utf-8";
+    req.headers["Accept"] = "application/json";
+    req.headers["Content-Type"] = "application/json;odata=verbose";
+
     http.StreamedResponse streamedResponse = await req.send();
+    http.Response r = await http.Response.fromStream(streamedResponse);
+
+    late final T? data;
+    late final JSON json;
+
+    try {
+      print("r.body: ${r.body}");
+      print("r.sc: ${r.statusCode}");
+
+      json = jsonDecode(r.body);
+
+      if (options.convert != null) {
+        data = options.convert!(json);
+      } else {
+        throw "convertor obso";
+      }
+    } catch (e) {
+      data = null;
+      try {
+        json = {};
+      } catch (e) {}
+    }
+
+    return ODataResponse<T>(
+      path: path,
+      response: r,
+      json: json,
+      statusCode: r.statusCode,
+      context: json["@odata.context"],
+    );
   }
 
   Query<T> select(Iterable<String> fields) {
@@ -82,9 +123,7 @@ class Query<T> extends QueryBase {
   }
 
   Query<T> filter(String expression) {
-    if (!_filter.contains(expression)) {
-      _filter.add(expression);
-    }
+    _filter = {..._filter, expression}.toList();
 
     return this;
   }

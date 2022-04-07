@@ -82,6 +82,6 @@ class OrderyByField extends QueryField {
 
   @override
   String toString() {
-    return "${super} ${type.name}";
+    return "${super.toString()} ${type.name}";
   }
 }
